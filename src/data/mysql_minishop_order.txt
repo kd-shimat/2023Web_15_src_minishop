@@ -1,0 +1,19 @@
+# データベースminishopを使用する			
+set names utf8;			
+use minishop;			
+			
+# 注文テーブルordersの作成			
+drop table if exists orders;			
+create table orders (			
+    orderId     int   auto_increment   primary   key,			
+    orderdate   datetime			
+);			
+			
+# 注文明細テーブルorderdetailsの作成			
+drop table if exists orderdetails;			
+create table orderdetails (			
+    orderId     int,			
+    itemId      int,			
+    quantity    int,			
+    primary key(orderId, itemId)			
+);			
